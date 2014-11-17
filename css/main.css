@@ -1,0 +1,7 @@
+body {
+    background-color: #ddd;
+}
+
+canvas {
+    visibility: hidden;
+}
