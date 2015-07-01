@@ -7,34 +7,80 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body ng-app="PlaceholderImageApp" ng-controller="AppController">
-    <!--[if lt IE 9]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <form>
-        <div>
-            <label>Width</label>
-            <input type="text" ng-model="width">
-        </div>
-        <div>
-            <label>Height</label>
-            <input type="text" ng-model="height">
-        </div>
-        <div>
-            <label>Font</label>
-            <input type="text" ng-model="font">
-        </div>
-        <button ng-click="generate()">Generate</button>
-    </form>
+    <div class="container-fluid">
+        <h1>Placeholder Image <small>(generated with canvas)</small> </h1>
+    </div>
 
-    <img ng-src="{{imageData}}">
+    <div class="container">
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="imgWidth" class="col-sm-3 control-label">Width (in px):</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="imgWidth" ng-model="width">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgHeight" class="col-sm-3 control-label">Height (in px):</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="imgHeight" ng-model="height">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgFont" class="col-sm-3 control-label">Font:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="imgFont" ng-model="font">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgFontSize" class="col-sm-3 control-label">FontSize:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="imgFontSize" ng-model="fontSize">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgFontColor" class="col-sm-3 control-label">FontColor:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="imgFontColor" ng-model="fontColor">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-4">
+                    <button class="btn btn-primary" ng-click="generate()">Generate</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container" ng-show="imageData">
+        <div class="col-sm-6">
+            <h3>How to get the image source</h3>
+            <ul>
+                <li>Right click on the image</li>
+                <li>Select "Copy image URL"</li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <h3>Alternative:</h3>
+            <ul>
+                <li>Select and copy the raw text from the textarea element</li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <img ng-src="{{imageData}}">
+            <textarea class="form-control" ng-model="imageData" rows="5" readonly></textarea>
+        </div>
+    </div>
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 
