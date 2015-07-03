@@ -13,11 +13,11 @@
 </head>
 
 <body ng-app="PlaceholderImageApp" ng-controller="AppController">
-    <div class="container-fluid">
+    <div class="container container-hero">
         <h1>Placeholder Image <small>(generated with canvas)</small> </h1>
     </div>
 
-    <div class="container">
+    <div class="container container-setting">
         <!--[if lt IE 9]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -59,7 +59,7 @@
             </div>
         </form>
     </div>
-    <div class="container" ng-show="imageData">
+    <div class="container container-data" ng-show="imageData">
         <div class="col-sm-6">
             <h3>How to get the image source</h3>
             <ul>
